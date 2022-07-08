@@ -1,6 +1,7 @@
 from functools import wraps
 
 
+# example 1
 def repeat(times):
     ''' call a function a number of times '''
     def decorate(fn):
@@ -24,3 +25,27 @@ def say(message):
 
 
 say('Hi')
+
+
+# example 2
+def forty_two():
+    return 42
+
+
+def my_decorator(f):
+    def inner(*args, **kwargs):
+        print('before function')
+        response = f(*args, **kwargs)
+        print('after function')
+        return response
+    print('decorating', f)
+    return inner
+
+
+@my_decorator
+def my_func(a, b):
+    print('in function')
+    return a + b
+
+
+print(my_func(1, 2))

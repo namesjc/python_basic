@@ -24,7 +24,7 @@ INNER JOIN city as c1
 ON c.country_id = c1.counrty_id
 ```
 
-![image-20220615150034585](C:\Users\cje5szh\AppData\Roaming\Typora\typora-user-images\image-20220615150034585.png)
+![image-20220615150034585](https://github.com/namesjc/python_basic/blob/main/screenshot/image-20220615150034585.png)
 
 ### Example of one-to-many relation in SQL Server
 
@@ -82,7 +82,7 @@ CREATE TABLE file_category (
 )
 ```
 
-![image-20220615153119420](C:\Users\cje5szh\AppData\Roaming\Typora\typora-user-images\image-20220615153119420.png)
+![image-20220615153119420](https://github.com/namesjc/python_basic/blob/main/screenshot/image-20220615153119420.png)
 
 ## Self-referencing relationship
 
@@ -90,7 +90,7 @@ A self-referencing relationship (also known as a recursive relationship) in a da
 
 A self-referencing relationship example in SQL:
 
-![image-20220615154027738](C:\Users\cje5szh\AppData\Roaming\Typora\typora-user-images\image-20220615154027738.png)
+![image-20220615154027738](https://github.com/namesjc/python_basic/blob/main/screenshot/image-20220615154027738.png)
 
 ### How to create a self-referencing relationship in SQL
 
@@ -126,7 +126,7 @@ As an example, consider a database that has `students` and `teachers`. I can say
 
 The representation of a many-to-many relationship requires the use of an auxiliary table called an *association table* Here is how the database would look for the students and teacher example:
 
-![image-20220614102525927](C:\Users\cje5szh\AppData\Roaming\Typora\typora-user-images\image-20220614102525927.png)
+![image-20220614102525927](https://github.com/namesjc/python_basic/blob/main/screenshot/image-20220614102525927.png)
 
 ### Many-to-One and One-to-One
 
@@ -163,7 +163,7 @@ class Post(Updateable, db.Model):
 
 Here is the diagram of the self-referential many-to-many relationship that keeps track of followers:
 
-![image-20220614103838950](C:\Users\cje5szh\AppData\Roaming\Typora\typora-user-images\image-20220614103838950.png)
+![image-20220614103838950](https://github.com/namesjc/python_basic/blob/main/screenshot/image-20220614103838950.png)
 
 The `followers` table is the association table of the relationship. The foreign keys in this table are both pointing at entries in the user table, since it is linking users to users. Each record in this table represents one link between a follower user and a followed user. Like the students and teachers example, a setup like this one allows the database to answer all the questions about followed and followers users that we ever need.
 

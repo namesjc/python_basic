@@ -1,0 +1,17 @@
+Mr. Schafer
+Mr Smith
+Ms Davis
+Mrs. Robinson
+Mr. T
+
+match all Mr. Ms Mrs.
+    M(r|s|rs)\.?\s[A-Z]\w*
+
+
+CoreyMSchafer@gmail.com
+corey.schafer@university.edu
+corey-321-schafer@my-work.net
+
+
+
+

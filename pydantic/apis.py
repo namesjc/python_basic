@@ -19,7 +19,7 @@ class Event(BaseModel):
 
 
 class Division(BaseModel):
-    name: str = Field(alias="division") # Rename the field
+    name: str = Field(alias="division")  # Rename the field
     events: list[Event]
 
 
@@ -30,7 +30,7 @@ class BankHolidays(BaseModel):
 
     class Config:
         # Convert the field names to snake_case
-        alias_generator = lambda x: x.replace("_", "-")
+        alias_generator = lambda x: x.replace("_", "-")  # noqa: E731
 
 
 if __name__ == "__main__":

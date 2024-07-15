@@ -5,24 +5,24 @@
 ```python
 class Employee:
   
-  # initialize or construct
-	def __int__(self, first, last, pay):
-    self.first = first
-    self.last = last
-    self.pay = pay
-    self.email = first + '.' + last + '@cpmpany.com'
+    # initialize or construct
+    def __int__(self, first, last, pay):
+        self.first = first
+        self.last = last
+        self.pay = pay
+        self.email = first + '.' + last + '@cpmpany.com'
     
-	def fullname(self):
-    return f'{self.first} {self.last}'
+    def fullname(self):
+        return f'{self.first} {self.last}'
 ```
 
 ```python
-# creast instance 
+# create instance 
 emp_1 = Employee('Marco', 'Chan', 5000)
 emp_2 = Employee('Test', 'User', 7000)
 ```
 
-```
+```python
 # print employee's email
 print(emp_1.email)
 
@@ -36,28 +36,28 @@ Employee.fullname(emp_1)
 
 ## 2.Class variables
 
-class variales are variables that are shared among all instances of the class. Should be the same for each instance.
+class variables are variables that are shared among all instances of the class. Should be the same for each instance.
 
 ```python
 class Employee:
   
-  # class variables
-  raise_amount = 1.04
-  num_of_emps = 0
-  
-  # initialize or construct
-  def __int__(self, first, last, pay):
-    self.first = first
-    self.last = last
-    self.pay = pay
-    self.email = first + '.' + last + '@cpmpany.com'
-    Employee.num_of_emps += 1
+    # class variables
+    raise_amount = 1.04
+    num_of_emps = 0
+      
+      # initialize or construct
+    def __int__(self, first, last, pay):
+        self.first = first
+        self.last = last
+        self.pay = pay
+        self.email = first + '.' + last + '@company.com'
+        Employee.num_of_emps += 1
     
-	def fullname(self):
-    return f'{self.first} {self.last}'
-  
-  def apply_raise(self):
-    self.pay = int(self.pay * self.raise_amount)
+    def fullname(self):
+        return f'{self.first} {self.last}'
+    
+    def apply_raise(self):
+        self.pay = int(self.pay * self.raise_amount)
 ```
 
 ```python
@@ -103,41 +103,41 @@ print(emp_1.__dict__)
 ```python
 class Employee:
   
-  # class variables
-  raise_amt = 1.04
-  num_of_emps = 0
-  
-  # initialize or construct
-  def __int__(self, first, last, pay):
-    self.first = first
-    self.last = last
-    self.pay = pay
-    self.email = first + '.' + last + '@cpmpany.com'
-    Employee.num_of_emps += 1
-  
-  # instance method
-  def fullname(self):
-    return f'{self.first} {self.last}'
-  
-  def apply_raise(self):
-    self.pay = int(self.pay * self.raise_amt)
+    # class variables
+    raise_amt = 1.04
+    num_of_emps = 0
     
-  @classmethod
-  def set_raise_amt(cls, amount):
-    cls.raise_amt = amount
-  
-  # Additional constructor
-  @classmethod
-  def from_string(cls, emp_str):
-    first, last, pay = emp_str.split('-')
-    returb cls(first, last, pay)
-   
-  # staticmethods don't take the instance(self) or class(cls) as the first argument
-  @staticmethod
-  def is_workday(day):
-    if day.weekday() == 5 or day.weekday == 6:
-      return False
-    return True
+    # initialize or construct
+    def __int__(self, first, last, pay):
+        self.first = first
+        self.last = last
+        self.pay = pay
+        self.email = first + '.' + last + '@company.com'
+        Employee.num_of_emps += 1
+    
+    # instance method
+    def fullname(self):
+        return f'{self.first} {self.last}'
+    
+    def apply_raise(self):
+        self.pay = int(self.pay * self.raise_amt)
+    
+    @classmethod
+    def set_raise_amt(cls, amount):
+        cls.raise_amt = amount
+    
+    # Additional constructor
+    @classmethod
+    def from_string(cls, emp_str):
+        first, last, pay = emp_str.split('-')
+        return cls(first, last, pay)
+    
+    # static methods don't take the instance(self) or class(cls) as the first argument
+    @staticmethod
+    def is_workday(day):
+        if day.weekday() == 5 or day.weekday == 6:
+            return False
+        return True
 ```
 
 ```python
@@ -326,34 +326,34 @@ For more dunder method, refer to [link](https://docs.python.org/3/reference/data
 ```python
 class Employee:
   
-  # class variables
-  raise_amt = 1.04
-  
-  # initialize or construct
-  def __int__(self, first, last, pay):
-    self.first = first
-    self.last = last
-    self.pay = pay
-    self.email = first + '.' + last + '@cpmpany.com'
-  
-  # instance method
-	def fullname(self):
-    return f'{self.first} {self.last}'
-  
-  def apply_raise(self):
-    self.pay = int(self.pay * self.raise_amt)
+    # class variables
+    raise_amt = 1.04
     
-  def __repr__(self):
-    return f'Employee('{self.first}', '{self.last}', 'self.pay')'
-
-  def __str__(self):
-    return f"{self.fullname} - {self.email}"
+    # initialize or construct
+    def __int__(self, first, last, pay):
+        self.first = first
+        self.last = last
+        self.pay = pay
+        self.email = first + '.' + last + '@cpmpany.com'
     
-  def __add__(self, other):
-    return self.pay + other.pay
-  
-  def __len__(self):
-    return len(self.fullname())
+    # instance method
+    def fullname(self):
+        return f'{self.first} {self.last}'
+    
+    def apply_raise(self):
+        self.pay = int(self.pay * self.raise_amt)
+    
+    def __repr__(self):
+        return f'Employee('{self.first}', '{self.last}', 'self.pay')'
+    
+    def __str__(self):
+        return f"{self.fullname} - {self.email}"
+    
+    def __add__(self, other):
+        return self.pay + other.pay
+    
+    def __len__(self):
+        return len(self.fullname())
 ```
 
 ```python
@@ -428,29 +428,29 @@ print(len(emp_1))
 ```python
 class Employee:
 
-  def __init__(self, first, last):
-    self.first = first
-    self.last = last
-
-  @property
-  def email(self):
-    return f"{self.first}.{self.last}@email.com"
-
-  @property
-  def fullname(self):
-    return f'{self.first} {self.last}'
-
-  @fullname.setter
-  def fullname(self, name):
-    first, last = name.split(' ')
-    self.first = first
-    self.last = last
-
-  @fullname.deleter
-  def fullname(self):
-    print('Delete name!')
-    self.first = None
-    self.last = None
+    def __init__(self, first, last):
+        self.first = first
+        self.last = last
+    
+    @property
+    def email(self):
+        return f"{self.first}.{self.last}@email.com"
+    
+    @property
+    def fullname(self):
+        return f'{self.first} {self.last}'
+    
+    @fullname.setter
+    def fullname(self, name):
+        first, last = name.split(' ')
+        self.first = first
+        self.last = last
+    
+    @fullname.deleter
+    def fullname(self):
+        print('Delete name!')
+        self.first = None
+        self.last = None
 ```
 
 ```python
@@ -474,3 +474,54 @@ We can use setter and deleter
 emp_1.fullname = 'Marco Chan'
 ```
 
+## 7.Dataclass
+
+在Python中，`dataclass`是一个用于简化类定义的装饰器，它会自动添加一些特殊方法，如`__init__`、`__repr__`和`__eq__`，从而减少了编写样板代码的需要。这个装饰器是在Python 3.7中引入的，并且位于`dataclasses`模块中。
+
+使用`dataclass`装饰器可以更方便地创建数据类，这些类主要用于存储数据，并且通常具有一些自动生成的方法。
+
+### 基本用法
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Person:
+    name: str
+    age: int
+    city: str
+
+# 创建一个Person对象
+p = Person("Alice", 30, "New York")
+print(p)  # 输出：Person(name='Alice', age=30, city='New York')
+```
+
+在上面的例子中，我们定义了一个名为`Person`的简单数据类，它有三个属性：`name`、`age`和`city`。通过使用`@dataclass`装饰器，我们自动获得了`__init__`、`__repr__`和`__eq__`等方法，而无需手动编写它们。
+
+### 特性
+
+1. **自动生成的`__init__`方法**：根据类变量自动生成构造函数，使得创建对象时能够方便地设置属性。
+2. **自动生成的`__repr__`方法**：返回一个表示对象的字符串，便于调试和日志记录。
+3. **自动生成的`__eq__`方法**：用于比较两个对象是否相等，基于它们的属性值。
+4. **可配置性**：`dataclass`装饰器还提供了一些参数，如`init`、`repr`、`eq`、`order`和`unsafe_hash`，用于控制自动生成哪些方法。
+5. **冻结实例**：通过设置`frozen=True`，可以创建不可变的实例，类似于元组。
+6. **继承支持**：`dataclass`也支持继承，子类可以继承父类的属性和方法。
+7. **类型注解**：与`dataclasses`模块一起使用的类型注解不仅提高了代码的可读性，还有助于静态类型检查工具（如mypy）进行类型检查。
+
+### 示例：使用`frozen=True`创建不可变对象
+
+```python
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class ImmutablePoint:
+    x: int
+    y: int
+
+p = ImmutablePoint(10, 20)
+# p.x = 30  # 这将引发AttributeError，因为对象是不可变的
+```
+
+### 总结
+
+`dataclass`装饰器是Python中用于简化数据类定义的一个强大工具。它减少了编写样板代码的工作量，同时提供了丰富的配置选项来满足不同的需求。通过使用类型注解，它还能提高代码的可读性和可维护性。

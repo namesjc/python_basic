@@ -6,7 +6,7 @@
 class Employee:
   
   # initialize or construct
-  def __int__(self, first, last, pay):
+	def __int__(self, first, last, pay):
     self.first = first
     self.last = last
     self.pay = pay
@@ -91,7 +91,7 @@ We can change the raise_amount for the whole class level or instance level
 
 ```python
 # change the variable for class level
-Employee.raise_smount = 1.05
+Employee.raise_amount = 1.05
 # change the variable for instance level
 emp_1.raise_amount = 1.05
 # after assign raise_amount for instance, the result of the namespace is different
@@ -116,7 +116,7 @@ class Employee:
     Employee.num_of_emps += 1
   
   # instance method
-	def fullname(self):
+  def fullname(self):
     return f'{self.first} {self.last}'
   
   def apply_raise(self):
@@ -173,39 +173,39 @@ print(Employee.is_workday(my_date))
 ```python
 class Employee:
   
-  # class variables
-  raise_amt = 1.04
-  
-  # initialize or construct
-  def __int__(self, first, last, pay):
-    self.first = first
-    self.last = last
-    self.pay = pay
-    self.email = first + '.' + last + '@cpmpany.com'
-  
-  # instance method
-	def fullname(self):
-    return f'{self.first} {self.last}'
-  
-  def apply_raise(self):
-    self.pay = int(self.pay * self.raise_amt)
+    # class variables
+    raise_amt = 1.04
     
+    # initialize or construct
+    def __int__(self, first, last, pay):
+        self.first = first
+        self.last = last
+        self.pay = pay
+        self.email = first + '.' + last + '@cpmpany.com'
+    
+    # instance method
+    def fullname(self):
+        return f'{self.first} {self.last}'
+    
+    def apply_raise(self):
+        self.pay = int(self.pay * self.raise_amt)
+
 class Developer(Employee):
-  raise_amt = 1.10
-  
-  # subclass init method
-  def __init__(self, prog_lang):
-    # iherit from class
-    super.__init__(first, last, pay)
-    # add its own init method
-    self.prog_lang = prog_lang
+    raise_amt = 1.10
+    
+    # subclass init method
+    def __init__(self, first, last, pay, prog_lang):
+        # inherit from class
+        super.__init__(first, last, pay)
+        # add its own init method
+        self.prog_lang = prog_lang
 
 class Manager(Employee):
-
-    def __init__(self, first, last, pay, employees=None):
+  
+    def __init__(self, first, last, pay, employees: list = None):
         super().__init__(first, last, pay)
-        # both ways are working
-        # Employee.__init__(self, first, last, pay)
+    # both ways are working
+    # Employee.__init__(self, first, last, pay)
         if employees is None:
             self.employees = []
         else:
@@ -214,11 +214,11 @@ class Manager(Employee):
     def add_emp(self, emp):
         if emp not in self.employees:
             self.employees.append(emp)
-
+    
     def remove_emp(self, emp):
         if emp in self.employees:
             self.employees.remove(emp)
-
+    
     def print_emp(self):
         for emp in self.employees:
             print('-->', emp.fullname())
@@ -428,29 +428,29 @@ print(len(emp_1))
 ```python
 class Employee:
 
-    def __init__(self, first, last):
-        self.first = first
-        self.last = last
+  def __init__(self, first, last):
+    self.first = first
+    self.last = last
 
-    @property
-    def email(self):
-        return f"{self.first}.{self.last}@email.com"
+  @property
+  def email(self):
+    return f"{self.first}.{self.last}@email.com"
 
-    @property
-    def fullname(self):
-        return f'{self.first} {self.last}'
+  @property
+  def fullname(self):
+    return f'{self.first} {self.last}'
 
-    @fullname.setter
-    def fullname(self, name):
-        first, last = name.split(' ')
-        self.first = first
-        self.last = last
+  @fullname.setter
+  def fullname(self, name):
+    first, last = name.split(' ')
+    self.first = first
+    self.last = last
 
-    @fullname.deleter
-    def fullname(self):
-        print('Delete name!')
-        self.first = None
-        self.last = None
+  @fullname.deleter
+  def fullname(self):
+    print('Delete name!')
+    self.first = None
+    self.last = None
 ```
 
 ```python

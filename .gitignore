@@ -16,7 +16,7 @@ venv
 
 # for vscode
 .vscode
-.idea/*.xml
+.idea
 
 # environment
 .env
